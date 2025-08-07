@@ -1,10 +1,13 @@
 // import { useState } from 'react';
-import './App.css';
+
+import Navigation from './navigation/Navigation';
+import Home from './home/Home';
 
 function App() {
   return (
     <>
-      <h1>Delete this.</h1>
+      <Navigation />
+      <Home />
     </>
   );
 }
