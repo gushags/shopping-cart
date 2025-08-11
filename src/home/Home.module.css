@@ -45,4 +45,5 @@ button {
 
 .sellText {
   padding: 0 35px;
+  text-wrap: unset;
 }
