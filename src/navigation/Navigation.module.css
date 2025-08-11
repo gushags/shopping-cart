@@ -26,3 +26,7 @@ nav {
 .pad {
   padding-right: 75px;
 }
+
+nav div a:hover {
+  color: var(--main-blue);
+}

@@ -1,11 +1,17 @@
 /* style.css -- global styles*/
 
+:root {
+  --main-green: rgb(41, 175, 0);
+  --main-green-hov: rgba(41, 175, 15, 0.15); /*15% opacity */
+  --main-blue: #0081af;
+}
+
 a:link,
 a:visited {
   text-decoration: none;
-  color: rgb(41, 175, 0);
+  color: var(--main-green);
 }
 
 * {
-  color: rgb(41, 175, 0);
+  color: var(--main-green);
 }

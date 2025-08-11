@@ -1,9 +1,17 @@
 // Home.jsx
 
 import Navigation from '../navigation/Navigation';
+import Button from '../button/Button';
 import styles from './Home.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = 'shop';
+    navigate(path);
+  };
+
   return (
     <>
       <Navigation />
@@ -16,7 +24,7 @@ function Home() {
           amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut
           labore et dolore magna aliqua.
         </h4>
-        <button>Shop Now</button>
+        <Button label='Shop Now!' onClick={routeChange} />
       </div>
     </>
   );

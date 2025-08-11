@@ -17,7 +17,7 @@ function Navigation() {
             <Link to='/shop' className={styles.pad}>
               Shop
             </Link>
-            <Link to='/cart'>
+            <Link to='/cart' className={styles.grow}>
               Cart <span>0</span>
             </Link>
           </div>
