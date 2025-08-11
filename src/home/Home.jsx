@@ -6,6 +6,7 @@ import styles from './Home.module.css';
 function Home() {
   return (
     <>
+      <Navigation />
       <div className={styles.homepageBackground}>
         <div>Background Image</div>
         <div>Selling text</div>

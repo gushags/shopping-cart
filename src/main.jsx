@@ -10,7 +10,6 @@ const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Navigation />
     <RouterProvider router={router} />
   </StrictMode>
 );
