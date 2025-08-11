@@ -1,11 +1,5 @@
 /* Navigation.module.css */
 
-a:link,
-a:visited {
-  text-decoration: none;
-  color: rgb(41, 175, 0);
-}
-
 nav {
   position: relative;
   z-index: 100;

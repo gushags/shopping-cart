@@ -20,3 +20,29 @@
     transform: translateY(0); /* Return to starting position */
   }
 }
+
+.homeContainer {
+  position: absolute;
+  width: 60vw;
+  left: 20vw;
+  bottom: 25vh;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0px 0px 0px 20px rgba(41, 175, 0, 1),
+    0px 0px 0px 50px rgba(255, 255, 255, 1),
+    0px 0px 0px 70px rgba(41, 175, 0, 1);
+  text-wrap: unset;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+button {
+  margin: 25px 0;
+}
+
+.sellText {
+  padding: 0 35px;
+}
