@@ -1,9 +1,22 @@
 /* Home.module.css */
 .homepageBackground {
-  background-image: url('https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png');
+  background-image: url('../assets/bg-thebigstore.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
   width: 100%;
+  animation: oscillate-bg 6s ease-in-out infinite alternate;
+}
+
+@keyframes oscillate-bg {
+  0% {
+    transform: translateY(0); /* Starting position */
+  }
+  50% {
+    transform: translateY(-15px); /* Move up */
+  }
+  100% {
+    transform: translateY(0); /* Return to starting position */
+  }
 }

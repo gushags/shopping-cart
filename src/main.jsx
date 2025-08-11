@@ -15,3 +15,4 @@ createRoot(document.getElementById('root')).render(
 );
 
 getAllProducts('src/Product.json');
+getAllProducts('https://fakestoreapi.com/products');
