@@ -1,14 +1,21 @@
 // Shop.jsx
 
 import Navigation from '../navigation/Navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '../card/Card';
 import Button from '../button/Button';
 import styles from './Shop.module.css';
 import { addToCartButton } from '/src/button/Button.module.css';
 
 export default function Shop() {
-  const [products, setProducts] = useState(PRODUCTS);
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((json) => json.filter((item) => item.category.includes('clothing')))
+      .then((res) => setProducts(res));
+  }, []);
 
   const addToCart = () => {
     console.log('Add this to the cart, please.');

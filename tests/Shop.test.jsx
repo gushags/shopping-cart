@@ -6,7 +6,7 @@ import Shop from '../src/shop/Shop.jsx';
 
 describe('Shop component', () => {
   it('renders multiple cards when passed data', () => {
-    render(<Shop products={PRODUCTS} />);
+    render(<Shop />);
     expect(screen.getByText('Slim-fitting style')).toBeVisible();
     expect(screen.getByText('Mens Cotton Jacket')).toBeVisible();
     expect(screen.getByText('12.30')).toBeVisible();
