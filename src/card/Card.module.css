@@ -8,6 +8,17 @@
   width: calc(100vw / 3.5);
 }
 
+h3 {
+  padding: 20px 10px;
+  text-wrap: unset;
+  overflow-wrap: unset;
+  text-align: center;
+}
+
+h4 {
+  padding-top: 15px;
+}
+
 img {
   width: 80%;
   margin: 0 auto;
@@ -35,4 +46,12 @@ p {
 
 p:hover {
   opacity: 0.95;
+}
+
+input {
+  border: 1px solid var(--main-green);
+}
+
+input:focus-visible {
+  outline-color: var(--main-green);
 }

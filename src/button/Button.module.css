@@ -13,3 +13,13 @@
   background-color: var(--main-green-hov);
   transform: scale(1.1);
 }
+
+.addToCartButton {
+  composes: default;
+  font-size: 1.25rem;
+  transition: none;
+  margin-left: 15px;
+}
+.addToCartButton:hover {
+  transform: none;
+}

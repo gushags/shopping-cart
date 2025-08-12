@@ -4,6 +4,7 @@ import Navigation from '../navigation/Navigation';
 import Card from '../card/Card';
 import Button from '../button/Button';
 import styles from './Shop.module.css';
+import { addToCartButton } from '/src/button/Button.module.css';
 
 export default function Shop() {
   const addToCart = () => {
@@ -15,36 +16,56 @@ export default function Shop() {
       <Navigation />
       <div className={styles.shopContainer}>
         <Card
+          key={PRODUCTS[0].id}
           title={PRODUCTS[0].title}
           image={PRODUCTS[0].image}
           description={PRODUCTS[0].description}
           price={PRODUCTS[0].price}
         >
-          <Button label='Add to cart' onClick={addToCart} />
+          <Button
+            label='Add to cart'
+            style={addToCartButton}
+            onClick={addToCart}
+          />
         </Card>
         <Card
+          key={PRODUCTS[1].id}
           title={PRODUCTS[1].title}
           image={PRODUCTS[1].image}
           description={PRODUCTS[1].description}
           price={PRODUCTS[1].price}
         >
-          <Button label='Add to cart' onClick={addToCart} />
+          <Button
+            label='Add to cart'
+            style={addToCartButton}
+            onClick={addToCart}
+          />
         </Card>
         <Card
-          title={PRODUCTS[0].title}
-          image={PRODUCTS[0].image}
-          description={PRODUCTS[0].description}
-          price={PRODUCTS[0].price}
+          key={PRODUCTS[2].id}
+          title={PRODUCTS[2].title}
+          image={PRODUCTS[2].image}
+          description={PRODUCTS[2].description}
+          price={PRODUCTS[2].price}
         >
-          <Button label='Add to cart' onClick={addToCart} />
+          <Button
+            label='Add to cart'
+            style={addToCartButton}
+            onClick={addToCart}
+          />
         </Card>
         <Card
-          title={PRODUCTS[1].title}
-          image={PRODUCTS[1].image}
-          description={PRODUCTS[1].description}
-          price={PRODUCTS[1].price}
+          key={PRODUCTS[3].id}
+          title={PRODUCTS[3].title}
+          image={PRODUCTS[3].image}
+          description={PRODUCTS[3].description}
+          price={PRODUCTS[3].price}
         >
-          <Button label='Add to cart' onClick={addToCart} />
+          <Button
+            label='Add to cart'
+            style={addToCartButton}
+            onClick={addToCart}
+          />
         </Card>
       </div>
     </>
@@ -94,7 +115,7 @@ const PRODUCTS = [
       'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
     image:
       'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png',
-    price: 55.99,
+    price: 95.99,
     rating: { rate: 4.7, count: 500 },
     title: 'Mens Cotton Jacket',
   },
