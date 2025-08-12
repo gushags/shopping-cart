@@ -1,6 +1,16 @@
 /* Cart.module.css */
 
 .cartContainer {
-  width: 90%;
+  width: 90vw;
   margin: 140px auto 50px;
+}
+
+.bottomBorder {
+  border-bottom: 3px solid var(--main-green);
+}
+
+th {
+  text-align: left;
+  text-decoration: underline;
+  padding-bottom: 10px;
 }

@@ -1,1 +1,21 @@
 /* Item.module.css */
+
+.image {
+  height: 75px;
+  padding: 10px 0px 10px 40px;
+}
+
+.imageTD {
+  width: 10vw;
+}
+
+.itemContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+td {
+  border-bottom: 1px solid var(--main-green);
+  padding: 10px 0px;
+}
