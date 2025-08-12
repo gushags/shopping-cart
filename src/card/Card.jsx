@@ -18,16 +18,19 @@ export default function Card({
   return (
     <>
       <div key={id} className={styles.cardContainer}>
-        <h3>{title}</h3>
+        <h3 className={styles.title}>{title}</h3>
         <div className={styles.imgContainer}>
-          <img src={image} alt={title} />
-          <p>{description}</p>
+          <img className={styles.shopImg} src={image} alt={title} />
+          <p className={styles.description}>{description}</p>
         </div>
         {/* Force two digits after decimal place */}
-        <h4>Price: ${(Math.round(price * 100) / 100).toFixed(2)}</h4>
+        <h4 className={styles.price}>
+          Price: ${(Math.round(price * 100) / 100).toFixed(2)}
+        </h4>
         <div className='cartSection'>
           <label htmlFor='quantity'>Quantity: </label>
           <input
+            className={styles.shopInput}
             name='quantity'
             type='number'
             min='0'

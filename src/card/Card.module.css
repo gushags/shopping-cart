@@ -8,18 +8,18 @@
   width: calc(100vw / 3.5);
 }
 
-h3 {
+.title {
   padding: 20px 10px;
   text-wrap: unset;
   overflow-wrap: unset;
   text-align: center;
 }
 
-h4 {
+.price {
   padding-top: 15px;
 }
 
-img {
+.shopImg {
   width: 80%;
   margin: 0 auto;
 }
@@ -29,7 +29,7 @@ img {
   margin: 0 auto;
 }
 
-p {
+.description {
   position: absolute;
   background-color: var(--main-green);
   color: white;
@@ -44,14 +44,14 @@ p {
   transition: opacity 0.5s ease;
 }
 
-p:hover {
+.description:hover {
   opacity: 0.95;
 }
 
-input {
+.shopInput {
   border: 1px solid var(--main-green);
 }
 
-input:focus-visible {
+.shopInput:focus-visible {
   outline-color: var(--main-green);
 }
