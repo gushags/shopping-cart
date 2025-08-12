@@ -1,12 +1,15 @@
 // Shop.jsx
 
 import Navigation from '../navigation/Navigation';
+import { useState } from 'react';
 import Card from '../card/Card';
 import Button from '../button/Button';
 import styles from './Shop.module.css';
 import { addToCartButton } from '/src/button/Button.module.css';
 
 export default function Shop() {
+  const [products, setProducts] = useState(PRODUCTS);
+
   const addToCart = () => {
     console.log('Add this to the cart, please.');
   };
@@ -15,58 +18,25 @@ export default function Shop() {
     <>
       <Navigation />
       <div className={styles.shopContainer}>
-        <Card
-          key={PRODUCTS[0].id}
-          title={PRODUCTS[0].title}
-          image={PRODUCTS[0].image}
-          description={PRODUCTS[0].description}
-          price={PRODUCTS[0].price}
-        >
-          <Button
-            label='Add to cart'
-            style={addToCartButton}
-            onClick={addToCart}
-          />
-        </Card>
-        <Card
-          key={PRODUCTS[1].id}
-          title={PRODUCTS[1].title}
-          image={PRODUCTS[1].image}
-          description={PRODUCTS[1].description}
-          price={PRODUCTS[1].price}
-        >
-          <Button
-            label='Add to cart'
-            style={addToCartButton}
-            onClick={addToCart}
-          />
-        </Card>
-        <Card
-          key={PRODUCTS[2].id}
-          title={PRODUCTS[2].title}
-          image={PRODUCTS[2].image}
-          description={PRODUCTS[2].description}
-          price={PRODUCTS[2].price}
-        >
-          <Button
-            label='Add to cart'
-            style={addToCartButton}
-            onClick={addToCart}
-          />
-        </Card>
-        <Card
-          key={PRODUCTS[3].id}
-          title={PRODUCTS[3].title}
-          image={PRODUCTS[3].image}
-          description={PRODUCTS[3].description}
-          price={PRODUCTS[3].price}
-        >
-          <Button
-            label='Add to cart'
-            style={addToCartButton}
-            onClick={addToCart}
-          />
-        </Card>
+        {products ? (
+          products.map((product) => (
+            <Card
+              key={product.id}
+              title={product.title}
+              image={product.image}
+              description={product.description}
+              price={product.price}
+            >
+              <Button
+                label='Add to cart'
+                style={addToCartButton}
+                onClick={addToCart}
+              />
+            </Card>
+          ))
+        ) : (
+          <div>Something went wrong</div>
+        )}
       </div>
     </>
   );
