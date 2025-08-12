@@ -14,3 +14,11 @@ th {
   text-decoration: underline;
   padding-bottom: 10px;
 }
+
+.noBorder {
+  border-bottom: none;
+}
+
+.fontBold {
+  font-weight: 700;
+}

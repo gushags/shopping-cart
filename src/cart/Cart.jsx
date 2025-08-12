@@ -32,6 +32,12 @@ export default function Cart() {
           title={PRODUCTS[0].title}
           price={PRODUCTS[0].price}
         />
+        <tr>
+          <td className={styles.noBorder}></td>
+          <td className={styles.noBorder}></td>
+          <td className={`${styles.noBorder} ${styles.fontBold}`}>Total</td>
+          <td className={`${styles.noBorder} ${styles.fontBold}`}>$100.00</td>
+        </tr>
       </table>
     </>
   );
