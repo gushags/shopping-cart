@@ -44,7 +44,6 @@ export default function Cart() {
 }
 
 // dummy data
-
 const PRODUCTS = [
   {
     id: 0,
