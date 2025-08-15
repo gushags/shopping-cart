@@ -18,7 +18,7 @@ function Navigation() {
               Shop
             </Link>
             <Link to='/cart' className={styles.grow}>
-              Cart <span>0</span>
+              Cart <span data-testid='cartTotal'>0</span>{' '}
             </Link>
           </div>
         </div>

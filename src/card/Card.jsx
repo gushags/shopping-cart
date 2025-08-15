@@ -28,9 +28,10 @@ export default function Card({
           Price: ${(Math.round(price * 100) / 100).toFixed(2)}
         </h4>
         <div className='cartSection'>
-          <label htmlFor='quantity'>Quantity: </label>
+          <label htmlFor='prodQuantity'>Quantity</label>
           <input
             className={styles.shopInput}
+            id='prodQuantity'
             name='quantity'
             type='number'
             min='0'
