@@ -9,6 +9,7 @@ import { addToCartButton } from '/src/button/Button.module.css';
 
 export default function Shop() {
   const [products, setProducts] = useState(null);
+  const [cartContents, setCartContents] = useState([]);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -17,8 +18,14 @@ export default function Shop() {
       .then((res) => setProducts(res));
   }, []);
 
-  const addToCart = () => {
-    console.log('Add this to the cart, please.');
+  const addToCart = (event) => {
+    const clickedButton = event.target;
+    const productID = clickedButton.id;
+    const quantity = clickedButton.previousElementSibling;
+    const q = Number(quantity.value);
+    console.log('Quantity: ' + q);
+    console.log('ID: ' + productID);
+    // if quantity = 0, add to cart is grayed out
   };
 
   return (
@@ -35,6 +42,7 @@ export default function Shop() {
               price={product.price}
             >
               <Button
+                id={product.id}
                 label='Add to cart'
                 style={addToCartButton}
                 onClick={addToCart}

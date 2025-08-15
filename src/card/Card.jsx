@@ -1,5 +1,6 @@
 // Card.jsx
 import { useState } from 'react';
+import { QuantityContext } from '../contexts';
 import styles from './Card.module.css';
 
 export default function Card({
@@ -10,14 +11,19 @@ export default function Card({
   price,
   children,
 }) {
-  const [value, setValue] = useState(0);
+  const [quantity, setQuantity] = useState(0);
 
   const handleChange = (event) => {
-    setValue(Number(event.target.value));
+    setQuantity(Number(event.target.value));
+    if (event.target.value > 0) {
+      const button = event.target.nextElementSibling;
+      button.disabled = false;
+      console.log('Now you can enable button');
+    }
   };
   return (
     <>
-      <div key={id} className={styles.cardContainer}>
+      <div key={id} id={id} className={styles.cardContainer}>
         <h3 className={styles.title}>{title}</h3>
         <div className={styles.imgContainer}>
           <img className={styles.shopImg} src={image} alt={title} />
@@ -38,9 +44,9 @@ export default function Card({
             max='20'
             step='1'
             onChange={handleChange}
-            value={value}
+            value={quantity}
           />
-          {children}
+          <QuantityContext value={quantity}>{children}</QuantityContext>
         </div>
       </div>
     </>
