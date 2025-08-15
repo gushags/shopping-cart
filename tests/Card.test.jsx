@@ -1,20 +1,26 @@
-// Shop.test.jsx
+// Card.test.jsx
 
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Shop from '../src/shop/Shop.jsx';
+import Card from '../src/card/Card.jsx';
 
-describe('Shop component', () => {
-  it('renders multiple cards when passed data', () => {
-    render(<Shop />);
-    expect(screen.getByText('Slim-fitting style')).toBeVisible();
-    expect(screen.getByText('Mens Cotton Jacket')).toBeVisible();
-    expect(screen.getByText('12.30')).toBeVisible();
+describe('Card component', () => {
+  it('renders the card when passed data', () => {
+    render(
+      <Card
+        id={products[0].id}
+        title={products[0].title}
+        price={products[0].price}
+      />
+    );
+    expect(
+      screen.getByText('Mens Casual Premium Slim Fit T-Shirts')
+    ).toBeVisible();
   });
 });
 
 // Dummy data
-const PRODUCTS = [
+const products = [
   {
     id: 0,
     category: "men's clothing",

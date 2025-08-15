@@ -25,7 +25,7 @@ export default function Shop() {
     <>
       <Navigation />
       <div className={styles.shopContainer}>
-        {products ? (
+        {products &&
           products.map((product) => (
             <Card
               key={product.id}
@@ -40,10 +40,7 @@ export default function Shop() {
                 onClick={addToCart}
               />
             </Card>
-          ))
-        ) : (
-          <div>Something went wrong</div>
-        )}
+          ))}
       </div>
     </>
   );
