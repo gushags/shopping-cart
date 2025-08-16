@@ -1,8 +1,11 @@
 // Navigation.jsx
 import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom';
+import { CartTotalContext } from '../contexts';
+import { useContext } from 'react';
 
 function Navigation() {
+  const cartTotal = useContext(CartTotalContext);
   return (
     <>
       <nav>
@@ -18,7 +21,7 @@ function Navigation() {
               Shop
             </Link>
             <Link to='/cart' className={styles.grow}>
-              Cart <span data-testid='cartTotal'>0</span>{' '}
+              Cart <span data-testid='cartTotal'>({cartTotal})</span>{' '}
             </Link>
           </div>
         </div>

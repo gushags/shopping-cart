@@ -6,6 +6,7 @@ import Card from '../card/Card';
 import Button from '../button/Button';
 import styles from './Shop.module.css';
 import { addToCartButton } from '/src/button/Button.module.css';
+import { CartTotalContext } from '../contexts';
 
 export default function Shop() {
   const [products, setProducts] = useState(null);
@@ -31,7 +32,9 @@ export default function Shop() {
 
   return (
     <>
-      <Navigation />
+      <CartTotalContext value={cartContents.length}>
+        <Navigation />
+      </CartTotalContext>
       <div className={styles.shopContainer}>
         {products &&
           products.map((product) => (
