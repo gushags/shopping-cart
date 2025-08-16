@@ -21,11 +21,12 @@ export default function Shop() {
   const addToCart = (event) => {
     const clickedButton = event.target;
     const productID = clickedButton.id;
-    const quantity = clickedButton.previousElementSibling;
-    const q = Number(quantity.value);
-    console.log('Quantity: ' + q);
-    console.log('ID: ' + productID);
-    // if quantity = 0, add to cart is grayed out
+    const quantity = clickedButton.attributes.quantity.value;
+    const q = Number(quantity);
+    const index = products.findIndex((product) => product.id == productID);
+    let selection = products[index];
+    let newSelection = { ...selection, quantity: q };
+    setCartContents([...cartContents, newSelection]);
   };
 
   return (

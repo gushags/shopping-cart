@@ -5,19 +5,13 @@ import { QuantityContext } from '../contexts';
 
 import styles from './Button.module.css';
 
-export default function Button({
-  label,
-  id,
-  onClick,
-  style = styles.default,
-  disabled = false,
-}) {
+export default function Button({ label, id, onClick, style = styles.default }) {
   const quantityData = useContext(QuantityContext);
   return (
     <button
       type='button'
       id={id}
-      data={quantityData}
+      quantity={quantityData}
       className={style}
       onClick={onClick}
       disabled={!quantityData ? true : false}
