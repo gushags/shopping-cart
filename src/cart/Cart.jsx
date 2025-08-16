@@ -1,13 +1,15 @@
 // Cart.jsx
 
-import Navigation from '../navigation/Navigation';
+import { use } from 'react';
 import Item from '../item/Item';
 import styles from './Cart.module.css';
+import { useOutletContext } from 'react-router';
 
 export default function Cart() {
+  const { cartContents, setCartContents } = useOutletContext(); // use this data to populate
+
   return (
     <>
-      <Navigation />
       <table
         border='0'
         cellSpacing='0'

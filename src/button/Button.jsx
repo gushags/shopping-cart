@@ -1,20 +1,16 @@
 // Button.jsx
 
-import { useContext } from 'react';
-import { QuantityContext } from '../contexts';
-
 import styles from './Button.module.css';
 
 export default function Button({ label, id, onClick, style = styles.default }) {
-  const quantityData = useContext(QuantityContext);
   return (
     <button
       type='button'
       id={id}
-      quantity={quantityData}
+      quantity={0}
       className={style}
       onClick={onClick}
-      disabled={!quantityData ? true : false}
+      disabled={false}
     >
       {label}
     </button>

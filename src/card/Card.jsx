@@ -1,6 +1,5 @@
 // Card.jsx
 import { useState } from 'react';
-import { QuantityContext } from '../contexts';
 import styles from './Card.module.css';
 
 export default function Card({
@@ -15,8 +14,9 @@ export default function Card({
 
   const handleChange = (event) => {
     setQuantity(Number(event.target.value));
+    const button = event.target.nextElementSibling;
+    button.attributes.quantity.value = quantity;
     if (event.target.value > 0) {
-      const button = event.target.nextElementSibling;
       button.disabled = false;
       console.log('Now you can enable button');
     }
@@ -46,7 +46,7 @@ export default function Card({
             onChange={handleChange}
             value={quantity}
           />
-          <QuantityContext value={quantity}>{children}</QuantityContext>
+          {children}
         </div>
       </div>
     </>

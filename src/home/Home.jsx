@@ -1,11 +1,10 @@
 // Home.jsx
 
-import Navigation from '../navigation/Navigation';
 import Button from '../button/Button';
 import styles from './Home.module.css';
 import { useNavigate } from 'react-router-dom';
 
-function Home() {
+export default function Home() {
   let navigate = useNavigate();
   const routeChange = () => {
     let path = 'shop';
@@ -14,7 +13,6 @@ function Home() {
 
   return (
     <>
-      <Navigation />
       <div className={styles.homepageBackground}></div>
       <div className={styles.homeContainer}>
         <h1 className={styles.welcome}>Welcome to theBIGstore!</h1>
@@ -33,5 +31,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

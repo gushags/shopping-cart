@@ -1,16 +1,15 @@
 // Shop.jsx
 
-import Navigation from '../navigation/Navigation';
 import { useState, useEffect } from 'react';
 import Card from '../card/Card';
 import Button from '../button/Button';
 import styles from './Shop.module.css';
+import { useOutletContext } from 'react-router';
 import { addToCartButton } from '/src/button/Button.module.css';
-import { CartTotalContext } from '../contexts';
 
 export default function Shop() {
+  const { cartContents, setCartContents } = useOutletContext();
   const [products, setProducts] = useState(null);
-  const [cartContents, setCartContents] = useState([]);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -32,9 +31,6 @@ export default function Shop() {
 
   return (
     <>
-      <CartTotalContext value={cartContents.length}>
-        <Navigation />
-      </CartTotalContext>
       <div className={styles.shopContainer}>
         {products &&
           products.map((product) => (
@@ -50,6 +46,7 @@ export default function Shop() {
                 label='Add to cart'
                 style={addToCartButton}
                 onClick={addToCart}
+                cartcontents={cartContents}
               />
             </Card>
           ))}
