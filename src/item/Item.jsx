@@ -10,6 +10,7 @@ export default function Item({ id, image, title, quantity, price }) {
         </td>
         <td>{title}</td>
         <td>{quantity}</td>
+        <td>${(Math.round(price * 100) / 100).toFixed(2)}</td>
         <td>${(Math.round(price * quantity * 100) / 100).toFixed(2)}</td>
       </tr>
     </>

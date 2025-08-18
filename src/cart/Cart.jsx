@@ -7,6 +7,9 @@ import { useOutletContext } from 'react-router';
 export default function Cart() {
   const { cartContents, setCartContents } = useOutletContext(); // use this data to populate
 
+  const totalPrice = cartContents.reduce((acc, product) => {
+    return acc + product.quantity * product.price;
+  }, 0);
   return (
     <>
       {cartContents && (
@@ -22,11 +25,13 @@ export default function Cart() {
               <th>Product Name</th>
               <th>Quantity</th>
               <th>Price</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
             {cartContents.map((product) => (
               <Item
+                key={product.id}
                 id={product.id}
                 image={product.image}
                 title={product.title}
@@ -39,9 +44,10 @@ export default function Cart() {
             <tr>
               <td className={styles.noBorder}></td>
               <td className={styles.noBorder}></td>
-              <td className={`${styles.noBorder} ${styles.fontBold}`}>Total</td>
+              <td className={styles.noBorder}></td>
+              <td className={styles.noBorder}></td>
               <td className={`${styles.noBorder} ${styles.fontBold}`}>
-                $100.00
+                ${(Math.round(totalPrice * 100) / 100).toFixed(2)}
               </td>
             </tr>
           </tfoot>
