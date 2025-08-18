@@ -2,13 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Card from '../card/Card';
-import Button from '../button/Button';
 import styles from './Shop.module.css';
-import { useOutletContext } from 'react-router';
-import { addToCartButton } from '/src/button/Button.module.css';
 
 export default function Shop() {
-  const { cartContents, setCartContents } = useOutletContext();
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -18,37 +14,20 @@ export default function Shop() {
       .then((res) => setProducts(res));
   }, []);
 
-  const addToCart = (event) => {
-    const clickedButton = event.target;
-    const productID = clickedButton.id;
-    const quantity = clickedButton.attributes.quantity.value;
-    const q = Number(quantity);
-    const index = products.findIndex((product) => product.id == productID);
-    let selection = products[index];
-    let newSelection = { ...selection, quantity: q };
-    setCartContents([...cartContents, newSelection]);
-  };
-
   return (
     <>
       <div className={styles.shopContainer}>
         {products &&
           products.map((product) => (
             <Card
+              id={product.id}
+              products={products}
               key={product.id}
               title={product.title}
               image={product.image}
               description={product.description}
               price={product.price}
-            >
-              <Button
-                id={product.id}
-                label='Add to cart'
-                style={addToCartButton}
-                onClick={addToCart}
-                cartcontents={cartContents}
-              />
-            </Card>
+            />
           ))}
       </div>
     </>

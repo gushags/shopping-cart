@@ -1,6 +1,10 @@
 // Card.jsx
-import { useState } from 'react';
+
 import styles from './Card.module.css';
+import Button from '../button/Button';
+import buttonStyle from '../button/Button.module.css';
+import { useOutletContext } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Card({
   id,
@@ -8,19 +12,32 @@ export default function Card({
   image,
   description,
   price,
-  children,
+  products,
 }) {
   const [quantity, setQuantity] = useState(0);
+  const { cartContents, setCartContents } = useOutletContext();
 
   const handleChange = (event) => {
     setQuantity(Number(event.target.value));
     const button = event.target.nextElementSibling;
-    button.attributes.quantity.value = quantity;
     if (event.target.value > 0) {
       button.disabled = false;
       console.log('Now you can enable button');
     }
   };
+
+  const addToCart = (event) => {
+    const clickedButton = event.target;
+    const productID = clickedButton.id;
+    const quantity = clickedButton.previousElementSibling.value;
+    const q = Number(quantity);
+    const index = products.findIndex((product) => product.id == productID);
+    let selection = products[index];
+    let newSelection = { ...selection, quantity: q };
+    setCartContents([...cartContents, newSelection]);
+    setQuantity(0);
+  };
+
   return (
     <>
       <div key={id} id={id} className={styles.cardContainer}>
@@ -46,7 +63,12 @@ export default function Card({
             onChange={handleChange}
             value={quantity}
           />
-          {children}
+          <Button
+            id={id}
+            label='Add to cart'
+            style={buttonStyle.addToCartButton}
+            onClick={addToCart}
+          />
         </div>
       </div>
     </>

@@ -3,7 +3,12 @@
 import styles from './AppLayout.module.css';
 import { Outlet, Link } from 'react-router';
 
-export default function AppLayout({ cartContents, setCartContents }) {
+export default function AppLayout({
+  cartContents,
+  setCartContents,
+  cartQuantity,
+  setCartQuantity,
+}) {
   return (
     <>
       <header>
@@ -29,7 +34,14 @@ export default function AppLayout({ cartContents, setCartContents }) {
       </header>
 
       <main>
-        <Outlet context={{ cartContents, setCartContents }} />
+        <Outlet
+          context={{
+            cartContents,
+            setCartContents,
+            cartQuantity,
+            setCartQuantity,
+          }}
+        />
       </main>
     </>
   );

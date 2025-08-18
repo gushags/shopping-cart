@@ -1,6 +1,5 @@
 // Cart.jsx
 
-import { use } from 'react';
 import Item from '../item/Item';
 import styles from './Cart.module.css';
 import { useOutletContext } from 'react-router';
@@ -10,43 +9,44 @@ export default function Cart() {
 
   return (
     <>
-      <table
-        border='0'
-        cellSpacing='0'
-        cellPadding='0'
-        className={styles.cartContainer}
-      >
-        <thead>
-          <tr className={styles.bottomBorder}>
-            <th>Product</th>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <Item
-            id={PRODUCTS[0].id}
-            image={PRODUCTS[0].image}
-            title={PRODUCTS[0].title}
-            price={PRODUCTS[0].price}
-          />
-          <Item
-            id={PRODUCTS[0].id}
-            image={PRODUCTS[0].image}
-            title={PRODUCTS[0].title}
-            price={PRODUCTS[0].price}
-          />
-        </tbody>
-        <tfoot>
-          <tr>
-            <td className={styles.noBorder}></td>
-            <td className={styles.noBorder}></td>
-            <td className={`${styles.noBorder} ${styles.fontBold}`}>Total</td>
-            <td className={`${styles.noBorder} ${styles.fontBold}`}>$100.00</td>
-          </tr>
-        </tfoot>
-      </table>
+      {cartContents && (
+        <table
+          border='0'
+          cellSpacing='0'
+          cellPadding='0'
+          className={styles.cartContainer}
+        >
+          <thead>
+            <tr className={styles.bottomBorder}>
+              <th>Product</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartContents.map((product) => (
+              <Item
+                id={product.id}
+                image={product.image}
+                title={product.title}
+                quantity={product.quantity}
+                price={product.price}
+              />
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td className={styles.noBorder}></td>
+              <td className={styles.noBorder}></td>
+              <td className={`${styles.noBorder} ${styles.fontBold}`}>Total</td>
+              <td className={`${styles.noBorder} ${styles.fontBold}`}>
+                $100.00
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      )}
     </>
   );
 }

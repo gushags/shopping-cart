@@ -9,6 +9,7 @@ import Cart from './cart/Cart';
 
 export default function App() {
   const [cartContents, setCartContents] = useState([]);
+  const [cartQuantity, setCartQuantity] = useState(0);
 
   return (
     <BrowserRouter>
@@ -19,6 +20,8 @@ export default function App() {
             <AppLayout
               cartContents={cartContents}
               setCartContents={setCartContents}
+              cartQuantity={cartQuantity}
+              setCartQuantity={setCartQuantity}
             />
           }
         >

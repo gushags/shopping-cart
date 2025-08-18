@@ -1,7 +1,7 @@
 // Item.jsx
 import styles from './Item.module.css';
 
-export default function Item({ id, image, title, quantity = 1, price }) {
+export default function Item({ id, image, title, quantity, price }) {
   return (
     <>
       <tr key={id}>
