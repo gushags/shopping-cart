@@ -23,3 +23,11 @@
 .addToCartButton:hover {
   transform: none;
 }
+
+.disabledCart {
+  composes: addToCartButton;
+  opacity: 40%;
+}
+.disabledCart:hover {
+  background-color: white;
+}

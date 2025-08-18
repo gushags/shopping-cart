@@ -66,8 +66,11 @@ export default function Card({
           <Button
             id={id}
             label='Add to cart'
-            style={buttonStyle.addToCartButton}
+            style={
+              quantity ? buttonStyle.addToCartButton : buttonStyle.disabledCart
+            }
             onClick={addToCart}
+            disabled={quantity ? false : true}
           />
         </div>
       </div>
