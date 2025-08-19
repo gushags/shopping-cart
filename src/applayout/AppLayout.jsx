@@ -1,7 +1,7 @@
 // Take a look at this and see if this helps.
 
 import styles from './AppLayout.module.css';
-import { Outlet, Link } from 'react-router';
+import { Outlet, Link } from 'react-router-dom';
 
 export default function AppLayout({
   cartContents,

@@ -4,7 +4,7 @@ import Item from '../item/Item';
 import Button from '../button/Button';
 import buttonStyles from '../button/Button.module.css';
 import styles from './Cart.module.css';
-import { useOutletContext } from 'react-router';
+import { useOutletContext } from 'react-router-dom';
 
 export default function Cart() {
   const { cartContents } = useOutletContext(); // use this data to populate

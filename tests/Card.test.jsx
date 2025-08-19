@@ -16,6 +16,7 @@ describe('Card component', () => {
           id={products[0].id}
           title={products[0].title}
           price={products[0].price}
+          description={products[0].description}
         />
       </RenderWithOutletContext>
     );

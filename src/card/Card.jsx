@@ -3,7 +3,7 @@
 import styles from './Card.module.css';
 import Button from '../button/Button';
 import buttonStyle from '../button/Button.module.css';
-import { useOutletContext } from 'react-router';
+import { useOutletContext } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Card({

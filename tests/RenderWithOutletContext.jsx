@@ -1,5 +1,5 @@
 // RenderWithOutletContext.jsx
-import { MemoryRouter, Outlet, Route, Routes } from 'react-router';
+import { MemoryRouter, Outlet, Route, Routes } from 'react-router-dom';
 
 export const RenderWithOutletContext = ({ context, children }) => {
   return (

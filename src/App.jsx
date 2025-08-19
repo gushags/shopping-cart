@@ -1,7 +1,7 @@
 // App.jsx
 
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLayout from './applayout/AppLayout';
 import Home from './home/Home';
 import Shop from './shop/Shop';
