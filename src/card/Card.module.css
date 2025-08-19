@@ -20,12 +20,13 @@
 }
 
 .shopImg {
-  width: 80%;
+  height: 400px;
   margin: 0 auto;
 }
 
 .imgContainer {
   position: relative;
+  width: 100%;
   margin: 0 auto;
 }
 

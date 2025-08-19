@@ -67,11 +67,11 @@ export default function Cart() {
           cellPadding='0'
           className={styles.cartContainer}
         >
-          <th>
+          <thead>
             <tr>
               <td className={styles.noBorder}>The cart is empty.</td>
             </tr>
-          </th>
+          </thead>
         </table>
       )}
     </>
