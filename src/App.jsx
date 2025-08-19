@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AppLayout from './applayout/AppLayout.jsx';
-import Home from './home/Home.jsx';
-import Shop from './shop/Shop.jsx';
-import Cart from './cart/Cart.jsx';
+import AppLayout from './applayout/Applayout';
+import Home from './home/Home';
+import Shop from './Shop/Shop';
+import Cart from './cart/Cart';
 
 export default function App() {
   const [cartContents, setCartContents] = useState([]);

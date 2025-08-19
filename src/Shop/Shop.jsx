@@ -1,7 +1,7 @@
 // Shop.jsx
 
 import { useState, useEffect } from 'react';
-import Card from '../card/Card.jsx';
+import Card from '../card/Card';
 import styles from './Shop.module.css';
 
 export default function Shop() {
