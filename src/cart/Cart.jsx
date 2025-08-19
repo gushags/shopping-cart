@@ -1,7 +1,7 @@
 // Cart.jsx
 
-import Item from '../item/Item';
-import Button from '../button/Button';
+import Item from '../item/Item.jsx';
+import Button from '../button/Button.jsx';
 import buttonStyles from '../button/Button.module.css';
 import styles from './Cart.module.css';
 import { useOutletContext } from 'react-router-dom';

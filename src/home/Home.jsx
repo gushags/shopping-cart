@@ -1,6 +1,6 @@
 // Home.jsx
 
-import Button from '../button/Button';
+import Button from '../button/Button.jsx';
 import styles from './Home.module.css';
 import { useNavigate } from 'react-router-dom';
 
