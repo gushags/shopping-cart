@@ -31,3 +31,8 @@
 .disabledCart:hover {
   background-color: white;
 }
+
+.checkout {
+  composes: addToCartButton;
+  margin: 0;
+}

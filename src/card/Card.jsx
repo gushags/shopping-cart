@@ -3,7 +3,7 @@
 import styles from './Card.module.css';
 import Button from '../button/Button';
 import buttonStyle from '../button/Button.module.css';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext } from 'react-router';
 import { useState } from 'react';
 
 export default function Card({
@@ -22,7 +22,6 @@ export default function Card({
     const button = event.target.nextElementSibling;
     if (event.target.value > 0) {
       button.disabled = false;
-      console.log('Now you can enable button');
     }
   };
 
@@ -31,10 +30,16 @@ export default function Card({
     const productID = clickedButton.id;
     const quantity = clickedButton.previousElementSibling.value;
     const q = Number(quantity);
+
+    // find the product in the array and save to memory
     const index = products.findIndex((product) => product.id == productID);
     let selection = products[index];
     let newSelection = { ...selection, quantity: q };
+
+    // update the cart with the new selection, including quantity
     setCartContents([...cartContents, newSelection]);
+
+    // set the quantity input field to 0
     setQuantity(0);
   };
 
@@ -61,7 +66,7 @@ export default function Card({
             max='20'
             step='1'
             onChange={handleChange}
-            value={quantity}
+            value={quantity} // controls whether button is disabled or not
           />
           <Button
             id={id}

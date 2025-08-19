@@ -2,7 +2,7 @@
 
 .cartContainer {
   width: 90vw;
-  margin: 140px auto 50px;
+  margin: 140px auto 10px;
 }
 
 .bottomBorder {
@@ -21,4 +21,10 @@ th {
 
 .fontBold {
   font-weight: 700;
+}
+
+.checkout {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 8vw;
 }

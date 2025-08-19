@@ -1,128 +1,79 @@
 // Cart.jsx
 
 import Item from '../item/Item';
+import Button from '../button/Button';
+import buttonStyles from '../button/Button.module.css';
 import styles from './Cart.module.css';
 import { useOutletContext } from 'react-router';
 
 export default function Cart() {
-  const { cartContents, setCartContents } = useOutletContext(); // use this data to populate
+  const { cartContents } = useOutletContext(); // use this data to populate
 
   const totalPrice = cartContents.reduce((acc, product) => {
     return acc + product.quantity * product.price;
   }, 0);
   return (
     <>
-      {cartContents && (
+      {cartContents.length > 0 ? (
+        <>
+          <table
+            border='0'
+            cellSpacing='0'
+            cellPadding='0'
+            className={styles.cartContainer}
+          >
+            <thead>
+              <tr className={styles.bottomBorder}>
+                <th>Product</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartContents.map((product) => (
+                <Item
+                  key={product.id}
+                  id={product.id}
+                  image={product.image}
+                  title={product.title}
+                  quantity={product.quantity}
+                  price={product.price}
+                />
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td className={styles.noBorder}></td>
+                <td className={styles.noBorder}></td>
+                <td className={styles.noBorder}></td>
+                <td className={styles.noBorder}></td>
+                <td className={`${styles.noBorder} ${styles.fontBold}`}>
+                  ${(Math.round(totalPrice * 100) / 100).toFixed(2)}
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <div className={styles.checkout}>
+            <Button label='Checkout' style={buttonStyles.checkout} />
+          </div>
+        </>
+      ) : (
+        // render this if cart is empty
         <table
           border='0'
           cellSpacing='0'
           cellPadding='0'
           className={styles.cartContainer}
         >
-          <thead>
-            <tr className={styles.bottomBorder}>
-              <th>Product</th>
-              <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartContents.map((product) => (
-              <Item
-                key={product.id}
-                id={product.id}
-                image={product.image}
-                title={product.title}
-                quantity={product.quantity}
-                price={product.price}
-              />
-            ))}
-          </tbody>
-          <tfoot>
+          <th>
             <tr>
-              <td className={styles.noBorder}></td>
-              <td className={styles.noBorder}></td>
-              <td className={styles.noBorder}></td>
-              <td className={styles.noBorder}></td>
-              <td className={`${styles.noBorder} ${styles.fontBold}`}>
-                ${(Math.round(totalPrice * 100) / 100).toFixed(2)}
-              </td>
+              <td className={styles.noBorder}>The cart is empty.</td>
             </tr>
-          </tfoot>
+          </th>
         </table>
       )}
     </>
   );
 }
-
-// dummy data
-const PRODUCTS = [
-  {
-    id: 0,
-    category: "men's clothing",
-    description:
-      'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
-    image:
-      'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png',
-    price: 22.3,
-    rating: { rate: 4.1, count: 259 },
-    title: 'Mens Casual Premium Slim Fit T-Shirts ',
-  },
-  {
-    id: 1,
-    category: "men's clothing",
-    description:
-      'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
-    image:
-      'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png',
-    price: 55.99,
-    rating: { rate: 4.7, count: 500 },
-    title: 'Mens Cotton Jacket',
-  },
-  {
-    id: 2,
-    category: "men's clothing",
-    description:
-      'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
-    image:
-      'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png',
-    price: 12.3,
-    rating: { rate: 4.1, count: 259 },
-    title: 'Mens Premium Slim Fit T-Shirts ',
-  },
-  {
-    id: 3,
-    category: "men's clothing",
-    description:
-      'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
-    image:
-      'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png',
-    price: 95.99,
-    rating: { rate: 4.7, count: 500 },
-    title: 'Mens Cotton Jacket',
-  },
-  {
-    id: 4,
-    category: "men's clothing",
-    description:
-      'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
-    image:
-      'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png',
-    price: 52.3,
-    rating: { rate: 4.9, count: 259 },
-    title: 'Mens Casual Premium Fit T-Shirts ',
-  },
-  {
-    id: 5,
-    category: "men's clothing",
-    description:
-      'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
-    image:
-      'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png',
-    price: 90.99,
-    rating: { rate: 2.3, count: 500 },
-    title: 'Mens Heavy Cotton Jacket',
-  },
-];
