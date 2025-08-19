@@ -30,15 +30,12 @@ export default function Card({
     const productID = clickedButton.id;
     const quantity = clickedButton.previousElementSibling.value;
     const q = Number(quantity);
-
     // find the product in the array and save to memory
     const index = products.findIndex((product) => product.id == productID);
     let selection = products[index];
     let newSelection = { ...selection, quantity: q };
-
     // update the cart with the new selection, including quantity
     setCartContents([...cartContents, newSelection]);
-
     // set the quantity input field to 0
     setQuantity(0);
   };
@@ -49,7 +46,10 @@ export default function Card({
         <h3 className={styles.title}>{title}</h3>
         <div className={styles.imgContainer}>
           <img className={styles.shopImg} src={image} alt={title} />
-          <p className={styles.description}>{description}</p>
+          {/* truncate description if it is too long */}
+          <p className={styles.description}>
+            {description.length > 390 ? description.slice(0, 390) : description}
+          </p>
         </div>
         {/* Force two digits after decimal place */}
         <h4 className={styles.price}>
