@@ -3,10 +3,16 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
 import Shop from '../src/shop/Shop';
+import { RenderWithOutletContext } from './RenderWithOutletContext';
 
 describe('Shop component with api call', () => {
+  const mockSetFunction = vi.fn();
+  const mockCartContents = {
+    cartContents: [],
+    setCartContents: mockSetFunction,
+  };
+
   it('should display products correctly', async () => {
     const PRODUCTS = [
       {
@@ -30,9 +36,9 @@ describe('Shop component with api call', () => {
       })
     );
     render(
-      <MemoryRouter>
+      <RenderWithOutletContext context={mockCartContents}>
         <Shop />
-      </MemoryRouter>
+      </RenderWithOutletContext>
     );
 
     await waitFor(() => {
@@ -58,9 +64,9 @@ describe('Shop component with api call', () => {
       })
     );
     render(
-      <MemoryRouter>
+      <RenderWithOutletContext context={mockCartContents}>
         <Shop />
-      </MemoryRouter>
+      </RenderWithOutletContext>
     );
 
     // get the input element with the quantity and change the quanity to 1
@@ -72,7 +78,7 @@ describe('Shop component with api call', () => {
     });
 
     await waitFor(() => {
-      expect(screen.getByTestId('cartTotal').textContent).toMatch('1');
+      expect(mockSetFunction).toHaveBeenCalledTimes(1);
     });
   });
 });

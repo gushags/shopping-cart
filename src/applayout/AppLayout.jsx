@@ -26,7 +26,9 @@ export default function AppLayout({
               </Link>
               <Link to='/cart' className={styles.grow}>
                 Cart{' '}
-                <span data-testid='cartTotal'>({cartContents.length})</span>{' '}
+                <span data-testid='cartTotal'>
+                  {cartContents.length > 0 ? `(${cartContents.length})` : ''}
+                </span>{' '}
               </Link>
             </div>
           </div>
